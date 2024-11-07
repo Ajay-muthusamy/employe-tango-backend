@@ -11,7 +11,7 @@ dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 5000;
-const uri = process.env.MONGODB_URI;
+const uri = "mongodb+srv://ajaym22cse:7GFwTx8glQ3LkbY9@cluster0.074cb.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
