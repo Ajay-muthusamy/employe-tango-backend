@@ -13,7 +13,7 @@ export const emailadd = async (req, res) => {
   const token = jwt.sign({ email, companyMail }, process.env.JWT_SECRET, {
     expiresIn: "1d",
   });
-  const inviteLink = `http://localhost:5173/employeedata?companyMail=${encodeURIComponent(companyMail)}`;
+  const inviteLink = `https://tango-employee.netlify.app/employeedata?companyMail=${encodeURIComponent(companyMail)}`;
 
   const transporter = nodemailer.createTransport({
     host: "smtp.gmail.com",
