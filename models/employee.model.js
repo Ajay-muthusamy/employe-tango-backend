@@ -18,6 +18,7 @@ const employeeSchema = new mongoose.Schema({
   phoneNumber: { type: String, required: true },
   address: { type: String, required: true },
   password: { type: String, required: true },
+  checkinStatus: { type: Boolean, default: false },
 });
 const EmployeModel = mongoose.model("Employee Data", employeeSchema);
 export default EmployeModel;

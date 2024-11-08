@@ -241,13 +241,14 @@ export const EmployeeloginFunc = async (req, res) => {
       JWT_SECRET,
       { expiresIn: "1h" }
     );
-
+    employee.checkinStatus = true;
     res
       .status(200)
       .json({
         message: "Login successful",
         token,
         organizationDetails: employee,
+        checkin : employee.checkinStatus
       });
   } catch (error) {
     console.error("Error during login:", error);
