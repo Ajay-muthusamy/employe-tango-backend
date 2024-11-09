@@ -242,6 +242,8 @@ export const EmployeeloginFunc = async (req, res) => {
       { expiresIn: "1h" }
     );
     employee.checkinStatus = true;
+    await employee.save();
+
     res
       .status(200)
       .json({
@@ -255,3 +257,30 @@ export const EmployeeloginFunc = async (req, res) => {
     res.status(500).json({ error: "Login failed" });
   }
 };
+
+
+export const logout = async(req,res)=>{
+
+  console.log("function triggered")
+  const { email } = req.params;
+  try {
+    const employee = await EmployeModel.findOne({ email });
+    if(!employee){
+      res.status(500).send('logout employee not email found');
+    }
+
+    employee.checkinStatus = false;
+    await employee.save();
+
+    res
+      .status(200)
+      .json({
+        message: "Logout successful"
+      });
+    
+  } catch (error) {
+    console.error("Error during logout:", error);
+    res.status(500).json({ error: "logout failed" });
+    
+  }
+}

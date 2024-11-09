@@ -10,6 +10,7 @@ import { EmployeeloginFunc } from '../controller/auth.controller.js';
 import { leaveFunc } from '../controller/leave.controller.js';
 import { leavefetch } from '../controller/leave.controller.js';
 import { leavemailsend } from '../controller/leavemail.controller.js';
+import { logout } from '../controller/auth.controller.js';
 
 const router = express.Router();
 
@@ -25,6 +26,6 @@ router.post('/api/emplogin', EmployeeloginFunc);
 router.post('/api/empleave', leaveFunc);
 router.get('/leave/:companyEmail', leavefetch);
 router.post('/leavemail/acceptleave', leavemailsend); 
-router.post('/leavemail/rejectleave', leavemailsend); 
+router.post('/logout/:email', logout); 
 
 export default router;
